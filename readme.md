@@ -1,6 +1,6 @@
 # cordova-plugin-qrscanner-secore
 
-Versión personalizada del plugin [`cordova-plugin-qrscanner`](https://github.com/bitpay/cordova-plugin-qrscanner), adaptada por [@luissecore](https://github.com/luissecore) para ser compatible con **Cordova Android 13+** y **Gradle 7+**.
+Versión personalizada del plugin [`cordova-plugin-qrscanner`](https://github.com/bitpay/cordova-plugin-qrscanner), adaptada por [@LJSancibrian](https://github.com/LJSancibrian) para ser compatible con **Cordova Android 13+** y **Gradle 7+**.
 
 ---
 
