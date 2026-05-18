@@ -98,7 +98,7 @@ class QRScanner : CDVPlugin, AVCaptureMetadataOutputObjectsDelegate {
     }
 
     func sendErrorCode(command: CDVInvokedUrlCommand, error: QRScannerError){
-        let pluginResult = CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: error.rawValue)
+        let pluginResult = CDVPluginResult(status: CDVCommandStatus.error, messageAs: error.rawValue)
         commandDelegate!.send(pluginResult, callbackId:command.callbackId)
     }
 
@@ -246,7 +246,7 @@ class QRScanner : CDVPlugin, AVCaptureMetadataOutputObjectsDelegate {
         let found = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
         if found.type == AVMetadataObject.ObjectType.qr && found.stringValue != nil {
             scanning = false
-            let pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: found.stringValue ?? "")
+            let pluginResult = CDVPluginResult(status: CDVCommandStatus.ok, messageAs: found.stringValue ?? "")
             commandDelegate!.send(pluginResult, callbackId: nextScanningCommand!.callbackId)
             nextScanningCommand = nil
         }
@@ -468,7 +468,7 @@ class QRScanner : CDVPlugin, AVCaptureMetadataOutputObjectsDelegate {
             "currentCamera": String(currentCamera)
         ]
 
-        let pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: status)
+        let pluginResult = CDVPluginResult(status: CDVCommandStatus.ok, messageAs: status)
         commandDelegate!.send(pluginResult, callbackId:command.callbackId)
     }
 
