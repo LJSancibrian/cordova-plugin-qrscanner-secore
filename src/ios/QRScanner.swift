@@ -241,7 +241,7 @@ class QRScanner : CDVPlugin, AVCaptureMetadataOutputObjectsDelegate {
         if found.type == AVMetadataObject.ObjectType.qr && found.stringValue != nil {
             scanning = false
             let pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: found.stringValue ?? "")
-            commandDelegate!.send(pluginResult, callbackId: nextScanningCommand?.callbackId!)
+            commandDelegate!.send(pluginResult, callbackId: nextScanningCommand!.callbackId)
             nextScanningCommand = nil
         }
     }
