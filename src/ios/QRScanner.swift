@@ -30,7 +30,13 @@ class QRScanner : CDVPlugin, AVCaptureMetadataOutputObjectsDelegate {
                 }
             }
             
-            self.videoPreviewLayer?.connection?.videoOrientation = interfaceOrientationToVideoOrientation(UIApplication.shared.statusBarOrientation);
+            let orientation: UIInterfaceOrientation
+            if #available(iOS 13.0, *) {
+                orientation = UIApplication.shared.windows.first?.windowScene?.interfaceOrientation ?? .portrait
+            } else {
+                orientation = UIApplication.shared.statusBarOrientation
+            }
+            self.videoPreviewLayer?.connection?.videoOrientation = interfaceOrientationToVideoOrientation(orientation);
         }
         
         
